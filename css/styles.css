@@ -1,0 +1,68 @@
+body {
+  font-family: sans-serif;
+}
+
+/* kartochka o'rab turuvchisi stillari */
+.wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #bbdefb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.box {
+  /* Kartochka eni */
+  width: 300px;
+  /* kartochka bo'yi */
+  height: 300px;
+  /* kattochkani positioni */
+  position: relative;
+  /* Bola elementlar hover holatda 3D ko'rinish olishi uchun beriladi */
+  perspective: 1000px;
+}
+
+.front, .back {
+  /* elementla ota elementga nisbatan joylashishi uchun berildi */
+  position: absolute;
+  /* Elementlar ota element hatbi bo'yicha to'liq joylashishi uchun berildi */
+  width: 100%;
+  height: 100%;
+  /* elementlar tepa chap borchakka ustma ust joylashishi uchun berildi */
+  left: 0;
+  top: 0;
+  /* ustma ust joylashgan elementlar markazga kelishi uchun berildi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Element holatini o'zgartirish vaqti */
+  transition: 1s;
+  /* Element hover holatida ikkinchi elementni ko'rsatishi uchun berildi */
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+.front {
+  /* front elementining orqa foni */
+  background-color: #fff;
+}
+.back {
+  /* back elementining orqa foni */
+  background-color: #bdbdbd;
+  /* Back elementi 180 gradusga borilishi va backface-visibility: hidden; orqali front elementi hosil bo'lishi uchun kiritildi*/
+  transform: rotateY(180deg);
+}
+
+.box:hover .front{
+  /* box elementi hover holatida front elementi 180 gradusga buriladi */
+  transform: rotateY(180deg);
+}
+
+/* box elementi hover holatida back elementi 360 gradusga buriladi */
+.box:hover .back{
+  transform: rotateY(360deg);
+}
